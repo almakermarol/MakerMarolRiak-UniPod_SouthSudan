@@ -1,15 +1,13 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>week 2: Principles and Practices - your_name</title>
+		<title>Week 2: Your Digital Workshop Notebook - Maker Marol Riak</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="assets/css/custom.css" />
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css">
 		
 		<style>
-			/* Your existing week2 styles here */
 			.week-date { color: #666; font-style: italic; }
 			.less-bold { font-weight: 400; }
 			.image-caption { text-align: center; font-style: italic; color: #666; margin-top: -10px; }
@@ -110,15 +108,15 @@
 				<div class="inner">
 					<!-- Header -->
 					<header id="header">
-						<a href="index.html" class="logo"><strong>UNIPOD Rwanda |</strong> your_name</a>
+						<a href="index.html" class="logo"><strong>UniPod South Sudan |</strong> Maker Marol Riak</a>
 						<ul class="icons">
-							<li><a href="your-github-link" class="icon brands fa-github"><span class="label">Github</span></a></li>
-							<li><a href="your-linkedin-link" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-							<li><a href="mailto:your-email@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+							<li><a href="https://github.com/" class="icon brands fa-github"><span class="label">Github</span></a></li>
+							<li><a href="https://linkedin.com/in/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="mailto:" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
 						</ul>
 					</header>
 
-					<!-- week 2 Content -->
+					<!-- Week 2 Content -->
 					<section>
 						<div class="inpage-nav-box">
 							<h4>
@@ -127,14 +125,19 @@
 							</h4>
 							<ul id="nav-list-week2">
 								<li><a href="#intro-section">Introduction</a></li>
-								<li><a href="#process-docs-section">Process Documentation</a></li>
+								<li><a href="#tools-section">Tools Installation</a></li>
+								<li><a href="#ssh-section">SSH Setup</a></li>
+								<li><a href="#repo-section">Repository Management</a></li>
+								<li><a href="#workflow-section">Git Workflow</a></li>
+								<li><a href="#pages-section">GitHub Pages</a></li>
 								<li><a href="#reflection-section">Reflection</a></li>
 							</ul>
 						</div>
 
 						<header class="main">
-							<h1>week 2: weekly task</h1>
-							<p class="week-date">Date: From - To (include Dates)</p>
+							<h1>Week 2: Your Digital Workshop Notebook</h1>
+							<p class="week-date">Date: October 1 - October 6, 2025</p>
+							<blockquote>"The palest ink is better than the best memory." - Chinese Proverb</blockquote>
 						</header>
 
 						<!-- Summary of the weekly task -->
@@ -143,34 +146,164 @@
 								<h3>Quick Summary</h3>
 							</header>
 							<ul class="alt">
-								<li><strong>Skills Learned:</strong> </li>
-								<li><strong>Digital Tools and Software Used:</strong> </li>
-								<li><strong>Topics:</strong> </li>
-								<li><strong>Key Concepts:</strong> </li>
-								<li><strong>Challenges Faced:</strong> </li>
+								<li><strong>Skills Learned:</strong> Git version control, GitHub repository management, SSH authentication, GitHub Pages deployment.</li>
+								<li><strong>Digital Tools and Software Used:</strong> Git, Git Bash, GitHub, SSH, VS Code, GitHub Pages.</li>
+								<li><strong>Topics:</strong> Documentation importance, repository creation, SSH key setup, Git workflow, forking repositories, GitHub Pages.</li>
+								<li><strong>Key Concepts:</strong> Git add/commit/push workflow, SSH authentication, repository forking, static site deployment.</li>
+								<li><strong>Challenges Faced:</strong> SSH key generation and setup, understanding Git workflow, repository management.</li>
 							</ul>
 						</div>
-						<!-- ... all your existing week2 content bellow... -->
+
 						<div id="Notes" class="tab-content active">
 							<div>
-								&nbsp;
 								<!-- Introduction -->
 								<header class="major">
-								<h2 id="intro-section">Introduction</h2>
+									<h2 id="intro-section">Introduction</h2>
 								</header>
-								<p>Add your introduction</p>
+								<p>This week focused on establishing a comprehensive documentation system using Git and GitHub as our primary tools. The goal was to create a digital workshop notebook that will track our project development throughout the training program.</p>
+								
+								<h3>Why Documentation Matters</h3>
+								<ul>
+									<li><strong>For Yourself:</strong> Remember what you did and why when returning to a project months later</li>
+									<li><strong>For Your Career:</strong> A well-maintained GitHub profile serves as your modern engineering portfolio</li>
+									<li><strong>For Collaboration:</strong> Enables others to understand, use, and build upon your work</li>
+									<li><strong>For the Program:</strong> How you submit and get graded on your work</li>
+								</ul>
 
+								<!-- Tools Installation -->
 								<header class="major">
-								<h2 id="process-docs-section">Process Documentation</h2>
+									<h2 id="tools-section">Tools Installation & Configuration</h2>
 								</header>
-								<p>Add the process documentation of this week task</p>
-						
+
+								<h3>Essential Tools Setup</h3>
+								<p>We installed and configured the following tools for our documentation workflow:</p>
+								
+								<h4>1. Git & Git Bash</h4>
+								<p>Installed from git-scm.com with default settings. Git Bash provides a terminal for Windows users to run Git commands and Linux-style commands.</p>
+
+								<h4>2. VS Code</h4>
+								<p>Installed from code.visualstudio.com. Selected for its powerful features, extensions, and built-in terminal and Git integration.</p>
+
+								<h4>3. GitHub Account</h4>
+								<p>Created a professional GitHub account at github.com with a suitable username for portfolio purposes.</p>
+
+								<!-- SSH Setup -->
+								<header class="major">
+									<h2 id="ssh-section">SSH Key Setup</h2>
+								</header>
+
+								<h3>Understanding SSH Authentication</h3>
+								<p>SSH keys provide a secure, password-less way to connect your computer to GitHub. The analogy is creating a unique matched lock (public key) and key (private key) - you give GitHub the lock, and you keep the key.</p>
+
+								<h3>SSH Key Generation Process</h3>
+								<p>We generated ED25519 SSH key pairs using the terminal. When prompted during generation, we accepted the default file location and could choose to create a passphrase for additional security or proceed without one for simplicity.</p>
+
+								<h3>Adding Public Key to GitHub</h3>
+								<ol>
+									<li>Displayed and copied the public key from the terminal</li>
+									<li>Navigated to GitHub.com → Settings → SSH and GPG keys → New SSH Key</li>
+									<li>Added a descriptive title (e.g., "My Laptop") and pasted the public key</li>
+									<li>Clicked "Add SSH Key" to complete the setup</li>
+								</ol>
+
+								<!-- Repository Management -->
+								<header class="major">
+									<h2 id="repo-section">Repository Management</h2>
+								</header>
+
+								<h3>Creating Your First Repository</h3>
+								<ol>
+									<li>Clicked the "+" icon and selected "New repository"</li>
+									<li>Set repository name using the format: yourname-UniPod_Name</li>
+									<li>Added description: "My portfolio for the UniPod Digital Fabrication Program."</li>
+									<li>Set visibility to Public</li>
+									<li>Checked "Add a README file" option</li>
+									<li>Clicked "Create repository" to finalize</li>
+								</ol>
+
+								<h3>Forking Existing Repositories</h3>
+								<p>Forking allows you to copy a repository from one account to another, enabling experimentation without affecting the original project.</p>
+								<ol>
+									<li>Navigated to the repository we wanted to fork</li>
+									<li>Clicked the "Fork" button in the top-right corner</li>
+									<li>Selected our personal account as the destination</li>
+									<li>Renamed the forked repository in the Settings tab</li>
+								</ol>
+
+								<h3>Cloning to Local Machine</h3>
+								<p>We cloned our repositories to create local folders on our computers that are linked to remote GitHub repositories. This synchronized local copy allows us to work offline and push changes seamlessly back to the cloud.</p>
+
+								<!-- Git Workflow -->
+								<header class="major">
+									<h2 id="workflow-section">Git Workflow</h2>
+								</header>
+
+								<h3>The Three-Step Dance</h3>
+								<p>Git uses a precise three-step process for managing changes:</p>
+								<ul>
+									<li><strong>git add:</strong> Stage your changes (preparing items for shipping)</li>
+									<li><strong>git commit:</strong> Seal the package with a descriptive message (saving changes locally)</li>
+									<li><strong>git push:</strong> Ship to GitHub (uploading changes to remote repository)</li>
+								</ul>
+
+								<h3>Making and Committing Changes</h3>
+								<p>After cloning our repository, we made our first edit in VS Code by adding a welcome message to the README.md file. We then applied the Git workflow to save these changes and synchronize them with our GitHub repository.</p>
+
+								<!-- GitHub Pages -->
+								<header class="major">
+									<h2 id="pages-section">GitHub Pages Deployment</h2>
+								</header>
+
+								<h3>Turning Your Repository into a Website</h3>
+								<ol>
+									<li>Went to our repository on GitHub</li>
+									<li>Clicked the "Settings" tab</li>
+									<li>In the left sidebar, clicked "Pages"</li>
+									<li>Under "Source," selected "Deploy from a branch"</li>
+									<li>Under "Branch," selected the main branch and the / (root) folder</li>
+									<li>Clicked "Save" to deploy the site</li>
+								</ol>
+								<p>Our sites became live at URLs following this pattern: <code>https://your-username.github.io/unipod-portfolio/</code></p>
+								<p><em>Note: It can take a few minutes for the site to become available for the first time.</em></p>
+
 								<!-- Reflection -->
 								<header class="major">
-								<h2 id="reflection-section">Reflection</h2>
+									<h2 id="reflection-section">Reflection</h2>
 								</header>
-								<p>Add your reflection</p>
-								
+
+								<h3>Learning Outcomes</h3>
+								<p>This week established the foundation for professional documentation practices that will support our entire learning journey. Mastering Git and GitHub is essential not just for this program but for modern technical careers. The SSH key setup, while initially challenging, provides a more secure and efficient authentication method than passwords.</p>
+
+								<h3>Technical Challenges</h3>
+								<ul>
+									<li>Understanding the distinction between Git (local version control) and GitHub (remote hosting platform)</li>
+									<li>Proper SSH key generation, especially file permissions and directory setup</li>
+									<li>Mastering the Git workflow: understanding when to use add, commit, and push</li>
+									<li>Configuring GitHub Pages correctly for the first deployment</li>
+									<li>Learning to write effective commit messages that clearly describe changes</li>
+								</ul>
+
+								<h3>Key Takeaways</h3>
+								<ul>
+									<li>Documentation is indeed a superpower for remembering, collaborating, and career development</li>
+									<li>The Git workflow (add → commit → push) becomes intuitive with practice</li>
+									<li>SSH keys, once properly set up, create a seamless authentication experience</li>
+									<li>GitHub Pages provides an incredibly simple way to deploy static websites</li>
+									<li>Professional username and repository naming matters for portfolio presentation</li>
+								</ul>
+
+								<h3>This Week's Mission Checklist</h3>
+								<ul>
+									<li>Install Git + Bash and VS Code</li>
+									<li>Generate SSH keys and add public key to GitHub</li>
+									<li>Create GitHub account (if new)</li>
+									<li>Create unipod-portfolio repository on GitHub</li>
+									<li>Clone repository to local machine</li>
+									<li>Edit README.md and push changes</li>
+									<li>Enable GitHub Pages</li>
+									<li>Submit link to live GitHub Pages site</li>
+									<li>Create reflection document</li>
+								</ul>
 							</div>
 						</div>
 					</section>
