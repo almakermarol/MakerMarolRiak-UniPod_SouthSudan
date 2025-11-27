@@ -1,0 +1,528 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Week 3: Design Thinking - Office Desk LED Nameplate - Maker Marol Riak</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/custom.css" />
+		
+		<style>
+			.week-date { color: #666; font-style: italic; }
+			.less-bold { font-weight: 400; }
+			.image-caption { text-align: center; font-style: italic; color: #666; margin-top: -10px; }
+			
+			/* In-Page Navigation Box CSS */
+			.inpage-nav-box {
+				float: right;
+				position: -webkit-sticky;
+				position: sticky;
+				top: 20px;
+				width: 220px;
+				margin-bottom: 1.5em;
+				background-color: #f8f8f8;
+				border: 1px solid #e0e0e0;
+				padding: 15px;
+				border-radius: 8px;
+				box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+				font-size: 0.9em;
+				z-index: 1000;
+			}
+
+			.inpage-nav-box h4 {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-top: 0;
+				margin-bottom: 12px;
+				font-size: 1em;
+				font-weight: bold;
+				color: #3d4449;
+				border-bottom: 1px solid #e0e0e0;
+				padding-bottom: 8px;
+			}
+
+			.nav-toggle-button {
+				background: none;
+				border: 1px solid #cccccc;
+				color: #333333;
+				cursor: pointer;
+				font-size: 0.8em;
+				font-weight: bold;
+				padding: 1px 6px;
+				border-radius: 4px;
+				line-height: 1.2;
+				margin-left: 5px;
+			}
+
+			.nav-toggle-button:hover {
+				background-color: #e9e9e9;
+				border-color: #bbbbbb;
+			}
+
+			.inpage-nav-box ul {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+
+			.inpage-nav-box ul.collapsed {
+				display: none;
+			}
+
+			.inpage-nav-box ul li {
+				margin-bottom: 8px;
+			}
+
+			.inpage-nav-box ul li:last-child {
+				margin-bottom: 0;
+			}
+
+			.inpage-nav-box ul li a {
+				text-decoration: none;
+				color: #2980B9;
+				display: block;
+				padding: 3px 0;
+			}
+
+			.inpage-nav-box ul li a:hover {
+				text-decoration: underline;
+				color: #1c6691;
+			}
+
+			@media screen and (max-width: 1200px) {
+				.inpage-nav-box {
+					float: none;
+					position: static;
+					width: 100%;
+					margin-bottom: 20px;
+				}
+			}
+			
+			.design-phase {
+				background-color: #f5f5f5;
+				padding: 15px;
+				border-radius: 8px;
+				margin-bottom: 20px;
+				border-left: 4px solid #2980B9;
+			}
+			
+			.process-step {
+				background: white;
+				border: 1px solid #e0e0e0;
+				border-radius: 8px;
+				padding: 20px;
+				margin: 20px 0;
+				box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+			}
+			
+			.process-step h3 {
+				color: #2980b9;
+				border-bottom: 2px solid #2980b9;
+				padding-bottom: 10px;
+				margin-top: 0;
+			}
+			
+			.sketch-gallery {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 20px;
+				margin: 20px 0;
+				justify-content: space-around;
+			}
+			
+			.sketch-item {
+				flex: 1;
+				min-width: 300px;
+				max-width: 400px;
+				text-align: center;
+			}
+			
+			.screenshot-container {
+				width: 100%;
+				margin-bottom: 15px;
+				border: 1px solid #e0e0e0;
+				border-radius: 8px;
+				overflow: hidden;
+				box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+				background: white;
+			}
+			
+			.screenshot-image {
+				width: 100%;
+				height: 250px;
+				background-color: #f8f8f8;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				position: relative;
+				border-bottom: 1px solid #e0e0e0;
+			}
+			
+			.screenshot-info {
+				padding: 15px;
+				background: white;
+			}
+			
+			.screenshot-info h4 {
+				margin-top: 0;
+				margin-bottom: 10px;
+				color: #2c3e50;
+			}
+			
+			.screenshot-info p {
+				margin-bottom: 10px;
+				font-size: 0.9em;
+				line-height: 1.4;
+			}
+			
+			.screenshot-features {
+				list-style: none;
+				padding: 0;
+				margin: 10px 0;
+			}
+			
+			.screenshot-features li {
+				padding: 5px 0;
+				border-bottom: 1px solid #f0f0f0;
+				font-size: 0.85em;
+			}
+			
+			.screenshot-features li:last-child {
+				border-bottom: none;
+			}
+			
+			.feature-label {
+				font-weight: bold;
+				color: #2980b9;
+			}
+			
+			.empathy-map {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				grid-template-rows: 1fr 1fr;
+				gap: 10px;
+				margin: 20px 0;
+			}
+			
+			.empathy-quadrant {
+				border: 1px solid #ddd;
+				padding: 15px;
+				border-radius: 5px;
+				background-color: white;
+			}
+			
+			.empathy-quadrant h4 {
+				margin-top: 0;
+				border-bottom: 1px solid #eee;
+				padding-bottom: 5px;
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+		<div id="wrapper">
+			<!-- Main Content -->
+			<div id="main">
+				<div class="inner">
+					<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo"><strong>UniPod South Sudan |</strong> Maker Marol Riak</a>
+						<ul class="icons">
+							<li><a href="https://github.com/" class="icon brands fa-github"><span class="label">Github</span></a></li>
+							<li><a href="https://linkedin.com/in/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="mailto:" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+					</header>
+
+					<!-- Week 3 Content -->
+					<section>
+						<div class="inpage-nav-box">
+							<h4>
+								On This Page
+								<button class="nav-toggle-button" aria-expanded="true" aria-controls="nav-list-week3" title="Toggle navigation list">-</button>
+							</h4>
+							<ul id="nav-list-week3">
+								<li><a href="#intro-section">Introduction</a></li>
+								<li><a href="#process-section">Process Documentation</a></li>
+								<li><a href="#reflection-section">Reflection</a></li>
+							</ul>
+						</div>
+
+						<header class="main">
+							<h1>Week 3: Design Thinking - Office Desk LED Nameplate</h1>
+							<p class="week-date">Date: October 8 - October 13, 2025</p>
+							<blockquote>"Design is not just what it looks like and feels like. Design is how it works." - Steve Jobs</blockquote>
+						</header>
+
+						<!-- Summary of the weekly task -->
+						<div class="box" id="quick-summary">
+							<header class="major">
+								<h3>Quick Summary</h3>
+							</header>
+							<ul class="alt">
+								<li><strong>Skills Learned:</strong> Design Thinking methodology, empathy mapping, problem definition, ideation techniques, concept sketching.</li>
+								<li><strong>Digital Tools and Software Used:</strong> CorelDraw, sketching tools, empathy mapping framework.</li>
+								<li><strong>Topics:</strong> Human-centered design, problem-solving, creative ideation, prototyping.</li>
+								<li><strong>Key Concepts:</strong> Empathize, Define, Ideate, Prototype, Test; Empathy Map; Problem Statement formula; Ideation rules.</li>
+								<li><strong>Project:</strong> Office Desk LED Nameplate</li>
+								<li><strong>Deliverables:</strong> 3 Annotated Concept Sketches</li>
+							</ul>
+						</div>
+
+						<div id="Notes" class="tab-content active">
+							<div>
+								<!-- Introduction Section -->
+								<header class="major">
+									<h2 id="intro-section">Introduction</h2>
+								</header>
+								
+								<h3>What is Design Thinking?</h3>
+								<p>Design Thinking is a human-centered approach to innovation that emphasizes understanding user needs and creating solutions that truly work. It's a process for creative problem-solving that starts with the people you're designing for.</p>
+								
+								<h3>Project Overview</h3>
+								<p>This week, we applied the Design Thinking methodology to create a personalized LED nameplate for an office desk. The project challenged us to understand user needs, define problems clearly, generate creative solutions, and visualize our concepts through annotated sketches.</p>
+								
+								<h3>The 5-Stage Design Thinking Process</h3>
+								<div class="design-phase">
+									<h4>1. Empathize</h4>
+									<p>Understand your users deeply through observation and engagement</p>
+								</div>
+								<div class="design-phase">
+									<h4>2. Define</h4>
+									<p>Frame the problem based on user needs and insights</p>
+								</div>
+								<div class="design-phase">
+									<h4>3. Ideate</h4>
+									<p>Generate a wide range of creative solutions</p>
+								</div>
+								<div class="design-phase">
+									<h4>4. Prototype</h4>
+									<p>Build testable representations of your ideas</p>
+								</div>
+								<div class="design-phase">
+									<h4>5. Test</h4>
+									<p>Learn from users and refine your solution</p>
+								</div>
+								<p><em>Note: This week we focused on the first four stages of the Design Thinking process.</em></p>
+
+								<!-- Process Documentation Section -->
+								<header class="major">
+									<h2 id="process-section">Process Documentation</h2>
+								</header>
+
+								<div class="process-step">
+									<h3>Phase 1: Empathize & Define</h3>
+									
+									<h4>Understanding User Needs</h4>
+									<p>We began by creating an empathy map to understand office workers' experiences with desk identification:</p>
+									
+									<div class="empathy-map">
+										<div class="empathy-quadrant">
+											<h4>SAY</h4>
+											<ul>
+												<li>"I want something that represents my personality"</li>
+												<li>"It should be visible but not distracting"</li>
+												<li>"I'd like something modern and professional"</li>
+											</ul>
+										</div>
+										<div class="empathy-quadrant">
+											<h4>DO</h4>
+											<ul>
+												<li>Use temporary paper name tags</li>
+												<li>Place business cards on desk</li>
+												<li>Have no name identification at all</li>
+											</ul>
+										</div>
+										<div class="empathy-quadrant">
+											<h4>THINK</h4>
+											<ul>
+												<li>"My workspace should reflect my identity"</li>
+												<li>"First impressions matter when colleagues visit"</li>
+												<li>"I want something functional but also aesthetically pleasing"</li>
+											</ul>
+										</div>
+										<div class="empathy-quadrant">
+											<h4>FEEL</h4>
+											<ul>
+												<li>Frustrated with generic office supplies</li>
+												<li>Want to express individuality within professional constraints</li>
+												<li>Excited about personalizing workspace</li>
+											</ul>
+										</div>
+									</div>
+
+									<h4>Problem Statement</h4>
+									<div class="box">
+										<p><strong>Office professionals</strong> need a way to <strong>display their name and role in a personalized, professional manner</strong> because <strong>current identification methods are generic and don't allow for individual expression while maintaining workplace professionalism.</strong></p>
+									</div>
+								</div>
+
+								<div class="process-step">
+									<h3>Phase 2: Ideate & Prototype</h3>
+									
+									<h4>Ideation Process</h4>
+									<p>Following the ideation rules of quantity over quality and deferring judgment, we generated 10+ creative solutions including:</p>
+									<ul>
+										<li>Minimalist acrylic plate with edge-lit LED name</li>
+										<li>Wooden nameplate with recessed LED letters</li>
+										<li>Magnetic modular nameplate with interchangeable role titles</li>
+										<li>3D printed nameplate with integrated LED lighting</li>
+										<li>Eco-friendly bamboo nameplate with solar-powered LED</li>
+									</ul>
+
+									<h4>Concept Sketches & Annotations</h4>
+									<p>We selected the three most promising concepts and created annotated sketches to visualize each solution:</p>
+
+									<div class="sketch-gallery">
+										<!-- Sketch 1 -->
+										<div class="sketch-item">
+											<div class="screenshot-container">
+												<div class="screenshot-image">
+													<img src="images/sketch1.jpg" alt="Minimalist Acrylic LED Nameplate Sketch" style="width:100%; height:100%; object-fit:contain;" />
+												</div>
+												<div class="screenshot-info">
+													<h4>Concept 1: Minimalist Acrylic LED Nameplate</h4>
+													<p>A sleek acrylic nameplate with edge-lit LED illumination. Features laser-etched text and a subtle 15° angled stand.</p>
+													<ul class="screenshot-features">
+														<li><span class="feature-label">Materials:</span> Clear acrylic, white LED strips</li>
+														<li><span class="feature-label">Power:</span> USB-C connection</li>
+														<li><span class="feature-label">Dimensions:</span> 200mm × 60mm × 5mm</li>
+														<li><span class="feature-label">Features:</span> Professional glow effect</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+
+										<!-- Sketch 2 -->
+										<div class="sketch-item">
+											<div class="screenshot-container">
+												<div class="screenshot-image">
+													<img src="images/sketch2.jpg" alt="Modular Magnetic Nameplate Sketch" style="width:100%; height:100%; object-fit:contain;" />
+												</div>
+												<div class="screenshot-info">
+													<h4>Concept 2: Modular Magnetic Nameplate</h4>
+													<p>A system of interchangeable magnetic components allowing users to update their role or add information.</p>
+													<ul class="screenshot-features">
+														<li><span class="feature-label">Materials:</span> Magnetic base, interchangeable plates</li>
+														<li><span class="feature-label">Power:</span> Rechargeable battery</li>
+														<li><span class="feature-label">Features:</span> Flexible, updatable</li>
+														<li><span class="feature-label">Advantage:</span> Adaptable to changing roles</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+
+										<!-- Sketch 3 -->
+										<div class="sketch-item">
+											<div class="screenshot-container">
+												<div class="screenshot-image">
+													<img src="images/sketch3.jpg" alt="Eco-Friendly Bamboo Nameplate Sketch" style="width:100%; height:100%; object-fit:contain;" />
+												</div>
+												<div class="screenshot-info">
+													<h4>Concept 3: Eco-Friendly Bamboo Nameplate</h4>
+													<p>Sustainable bamboo nameplate with solar-powered LED illumination, combining natural materials with technology.</p>
+													<ul class="screenshot-features">
+														<li><span class="feature-label">Materials:</span> Bamboo, solar panel, LEDs</li>
+														<li><span class="feature-label">Power:</span> Solar-powered with battery</li>
+														<li><span class="feature-label">Features:</span> Sustainable, self-powered</li>
+														<li><span class="feature-label">Advantage:</span> Environmentally friendly</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<h4>Selected Concept</h4>
+									<p>After evaluation based on feasibility, desirability, and viability, we selected the <strong>Minimalist Acrylic LED Nameplate</strong> as it best balances professional appearance with personalization and is feasible to manufacture with available tools.</p>
+								</div>
+
+								<!-- Reflection Section -->
+								<header class="major">
+									<h2 id="reflection-section">Reflection</h2>
+								</header>
+
+								<h3>Learning Outcomes</h3>
+								<p>This week introduced the structured approach of Design Thinking for problem-solving. The process of moving from empathy to defined problem to creative solutions provided a clear framework for tackling design challenges. The emphasis on understanding user needs before jumping to solutions was particularly valuable.</p>
+
+								<h3>Technical Challenges</h3>
+								<ul>
+									<li>Creating a comprehensive Empathy Map that captures diverse user perspectives</li>
+									<li>Crafting a precise Problem Statement that accurately reflects user needs</li>
+									<li>Generating truly diverse ideas without self-censoring during the ideation phase</li>
+									<li>Creating clear, communicative sketches that effectively convey design concepts</li>
+									<li>Balancing creativity with feasibility when selecting concepts</li>
+								</ul>
+
+								<h3>Key Takeaways</h3>
+								<ul>
+									<li>Design Thinking provides a structured yet flexible approach to problem-solving</li>
+									<li>Empathy is the foundation of good design - understanding users is crucial</li>
+									<li>A well-defined problem statement guides the entire design process</li>
+									<li>Divergent thinking (ideation) followed by convergent thinking (selection) yields better solutions</li>
+									<li>Simple sketches can effectively communicate complex ideas</li>
+									<li>The iterative nature of Design Thinking allows for continuous improvement</li>
+								</ul>
+
+								<h3>Design Sprint Deliverables</h3>
+								<ul>
+									<li><strong>Empathy Map:</strong> Deep understanding of user experience and emotions</li>
+									<li><strong>Problem Statement:</strong> Clear, actionable definition of the challenge to solve</li>
+									<li><strong>10+ Creative Ideas:</strong> Diverse range of potential solutions generated through ideation</li>
+									<li><strong>3 Annotated Sketches:</strong> Visual communication of your most promising concepts</li>
+									<li><strong>Selected Concept:</strong> Your chosen solution with clear justification based on our criteria</li>
+								</ul>
+
+								<h3>Looking Ahead</h3>
+								<p>Next week, we'll begin transforming our selected concept into a precise 2D design using CorelDraw. This step will help refine dimensions, structure, and layout before moving into 3D modeling. The foundation established through this Design Thinking process will support the technical development of our LED nameplate project.</p>
+
+								<h3>This Week's Mission Checklist</h3>
+								<ul>
+									<li>Install CorelDraw software</li>
+									<li>Complete empathy mapping for office nameplate users</li>
+									<li>Define clear problem statement using the provided formula</li>
+									<li>Generate 10+ ideas for LED nameplate solutions</li>
+									<li>Create 3 annotated sketches of promising concepts</li>
+									<li>Select and justify final concept based on feasibility, desirability, and viability</li>
+									<li>Document the complete Design Thinking process</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+
+			<!-- Sidebar (will be loaded automatically by sidebar-loader.js) -->
+			<div id="sidebar">
+				<!-- Sidebar content will be injected here -->
+			</div>
+		</div>
+
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script src="assets/js/sidebar-loader.js"></script> <!-- Universal sidebar loader -->
+		
+		<!-- Page-specific JavaScript -->
+		<script>
+			// Initialize page-specific functionality
+			document.addEventListener('DOMContentLoaded', function() {
+				// Navigation toggles
+				const navToggles = document.querySelectorAll('.nav-toggle-button');
+				navToggles.forEach(toggle => {
+					toggle.addEventListener('click', function() {
+						const navList = this.closest('.inpage-nav-box').querySelector('ul');
+						if (navList) {
+							navList.classList.toggle('collapsed');
+							this.textContent = navList.classList.contains('collapsed') ? '+' : '-';
+							this.setAttribute('aria-expanded', !navList.classList.contains('collapsed'));
+						}
+					});
+				});
+			});
+		</script>
+	</body>
+</html>
