@@ -1,0 +1,638 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Week 4: Computer-Aided Design - 2D Drawing with CorelDRAW - Maker Marol Riak</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/custom.css" />
+		
+		<style>
+			.week-date { color: #666; font-style: italic; }
+			.less-bold { font-weight: 400; }
+			.image-caption { text-align: center; font-style: italic; color: #666; margin-top: -10px; }
+			
+			/* In-Page Navigation Box CSS */
+			.inpage-nav-box {
+				float: right;
+				position: -webkit-sticky;
+				position: sticky;
+				top: 20px;
+				width: 220px;
+				margin-bottom: 1.5em;
+				background-color: #f8f8f8;
+				border: 1px solid #e0e0e0;
+				padding: 15px;
+				border-radius: 8px;
+				box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+				font-size: 0.9em;
+				z-index: 1000;
+			}
+
+			.inpage-nav-box h4 {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-top: 0;
+				margin-bottom: 12px;
+				font-size: 1em;
+				font-weight: bold;
+				color: #3d4449;
+				border-bottom: 1px solid #e0e0e0;
+				padding-bottom: 8px;
+			}
+
+			.nav-toggle-button {
+				background: none;
+				border: 1px solid #cccccc;
+				color: #333333;
+				cursor: pointer;
+				font-size: 0.8em;
+				font-weight: bold;
+				padding: 1px 6px;
+				border-radius: 4px;
+				line-height: 1.2;
+				margin-left: 5px;
+			}
+
+			.nav-toggle-button:hover {
+				background-color: #e9e9e9;
+				border-color: #bbbbbb;
+			}
+
+			.inpage-nav-box ul {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+
+			.inpage-nav-box ul.collapsed {
+				display: none;
+			}
+
+			.inpage-nav-box ul li {
+				margin-bottom: 8px;
+			}
+
+			.inpage-nav-box ul li:last-child {
+				margin-bottom: 0;
+			}
+
+			.inpage-nav-box ul li a {
+				text-decoration: none;
+				color: #2980B9;
+				display: block;
+				padding: 3px 0;
+			}
+
+			.inpage-nav-box ul li a:hover {
+				text-decoration: underline;
+				color: #1c6691;
+			}
+
+			@media screen and (max-width: 1200px) {
+				.inpage-nav-box {
+					float: none;
+					position: static;
+					width: 100%;
+					margin-bottom: 20px;
+				}
+			}
+			
+			.design-phase {
+				background-color: #f5f5f5;
+				padding: 15px;
+				border-radius: 8px;
+				margin-bottom: 20px;
+				border-left: 4px solid #2980B9;
+			}
+			
+			.process-step {
+				background: white;
+				border: 1px solid #e0e0e0;
+				border-radius: 8px;
+				padding: 20px;
+				margin: 20px 0;
+				box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+			}
+			
+			.process-step h3 {
+				color: #2980b9;
+				border-bottom: 2px solid #2980b9;
+				padding-bottom: 10px;
+				margin-top: 0;
+			}
+			
+			.sketch-gallery {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 20px;
+				margin: 20px 0;
+				justify-content: space-around;
+			}
+			
+			.sketch-item {
+				flex: 1;
+				min-width: 300px;
+				max-width: 400px;
+				text-align: center;
+			}
+			
+			.screenshot-container {
+				width: 100%;
+				margin-bottom: 15px;
+				border: 1px solid #e0e0e0;
+				border-radius: 8px;
+				overflow: hidden;
+				box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+				background: white;
+			}
+			
+			.screenshot-image {
+				width: 100%;
+				height: 250px;
+				background-color: #f8f8f8;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				position: relative;
+				border-bottom: 1px solid #e0e0e0;
+				overflow: hidden;
+			}
+			
+			.screenshot-image img {
+				max-width: 100%;
+				max-height: 100%;
+				object-fit: contain;
+			}
+			
+			.screenshot-info {
+				padding: 15px;
+				background: white;
+			}
+			
+			.screenshot-info h4 {
+				margin-top: 0;
+				margin-bottom: 10px;
+				color: #2c3e50;
+			}
+			
+			.screenshot-info p {
+				margin-bottom: 10px;
+				font-size: 0.9em;
+				line-height: 1.4;
+			}
+			
+			.screenshot-features {
+				list-style: none;
+				padding: 0;
+				margin: 10px 0;
+			}
+			
+			.screenshot-features li {
+				padding: 5px 0;
+				border-bottom: 1px solid #f0f0f0;
+				font-size: 0.85em;
+			}
+			
+			.screenshot-features li:last-child {
+				border-bottom: none;
+			}
+			
+			.feature-label {
+				font-weight: bold;
+				color: #2980b9;
+			}
+			
+			.download-section {
+				background: #f8f9fa;
+				border-radius: 8px;
+				padding: 20px;
+				margin: 30px 0;
+				border-left: 4px solid #2980b9;
+			}
+			
+			.download-button {
+				display: inline-block;
+				background: #2980b9;
+				color: white;
+				padding: 12px 24px;
+				border-radius: 5px;
+				text-decoration: none;
+				font-weight: bold;
+				margin-top: 10px;
+				transition: background 0.3s;
+				margin-right: 10px;
+				margin-bottom: 10px;
+			}
+			
+			.download-button:hover {
+				background: #1c6691;
+			}
+			
+			.tool-feature {
+				background: #e8f4fc;
+				border-radius: 5px;
+				padding: 10px;
+				margin: 10px 0;
+			}
+			
+			.download-button.pdf {
+				background: #d32f2f;
+			}
+			
+			.download-button.pdf:hover {
+				background: #b71c1c;
+			}
+			
+			.download-button.cdr {
+				background: #1976d2;
+			}
+			
+			.download-button.cdr:hover {
+				background: #1565c0;
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+		<div id="wrapper">
+			<!-- Main Content -->
+			<div id="main">
+				<div class="inner">
+					<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo"><strong>UniPod South Sudan |</strong> Maker Marol Riak</a>
+						<ul class="icons">
+							<li><a href="https://github.com/" class="icon brands fa-github"><span class="label">Github</span></a></li>
+							<li><a href="https://linkedin.com/in/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="mailto:" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+					</header>
+
+					<!-- Week 4 Content -->
+					<section>
+						<div class="inpage-nav-box">
+							<h4>
+								On This Page
+								<button class="nav-toggle-button" aria-expanded="true" aria-controls="nav-list-week4" title="Toggle navigation list">-</button>
+							</h4>
+							<ul id="nav-list-week4">
+								<li><a href="#intro-section">Introduction</a></li>
+								<li><a href="#software-section">CorelDRAW Software</a></li>
+								<li><a href="#interface-setup">Interface & Setup</a></li>
+								<li><a href="#technical-drawings">Technical Drawings</a></li>
+								<li><a href="#complete-design">Complete Design</a></li>
+								<li><a href="#download-section">CAD Files Download</a></li>
+								<li><a href="#reflection-section">Reflection</a></li>
+							</ul>
+						</div>
+
+						<header class="main">
+							<h1>Week 4: Computer-Aided Design - 2D Drawing with CorelDRAW</h1>
+							<p class="week-date">Date: October 15 - October 20, 2025</p>
+							<blockquote>"CAD is the bridge between ideas and physical reality." - UNIPOD Training</blockquote>
+						</header>
+
+						<!-- Summary of the weekly task -->
+						<div class="box" id="quick-summary">
+							<header class="major">
+								<h3>Quick Summary</h3>
+							</header>
+							<ul class="alt">
+								<li><strong>Skills Learned:</strong> Vector graphics design, technical drawing, dimensioning, file preparation for laser cutting</li>
+								<li><strong>Digital Tools and Software Used:</strong> CorelDRAW, Inkscape (for comparison), Adobe Illustrator (brief exploration)</li>
+								<li><strong>Topics:</strong> 2D CAD, Vector Graphics, Technical Drawing Standards, File Formats for Fabrication</li>
+								<li><strong>Key Concepts:</strong> Scalability, Precision Drawing, Layer Management, Export Settings</li>
+								<li><strong>Project:</strong> Office Desk LED Nameplate - Technical Drawings</li>
+								<li><strong>Deliverables:</strong> Front, Side, and Top view drawings in CorelDRAW format, exported PDF files for documentation</li>
+							</ul>
+						</div>
+
+						<div id="Notes" class="tab-content active">
+							<div>
+								<!-- Introduction Section -->
+								<header class="major">
+									<h2 id="intro-section">Introduction</h2>
+								</header>
+								
+								<p>This week focused on Computer-Aided Design (CAD) with an emphasis on 2D vector graphics using CorelDRAW. As part of the UNIPOD Digital Fabrication Program, we explored how CAD serves as the crucial link between conceptual design and physical fabrication. The Office Desk LED Nameplate project from Week 3 provided the perfect opportunity to apply these skills in creating precise technical drawings ready for laser cutting.</p>
+								
+								<p>In the African context where access to manufacturing equipment may be limited, mastering 2D CAD skills is particularly valuable. With CorelDRAW, I learned to create designs that can be fabricated multiple times, adapted for local materials (like available plywood thicknesses), and shared digitally across different fabrication labs.</p>
+								
+								<p>The week's objectives aligned perfectly with the learning outcomes from the UNIPOD curriculum: comparing 2D and 3D workflows, preparing files for fabrication (specifically laser cutting), using multiple CAD tools, and documenting the design process for community replication.</p>
+
+								<!-- Software Section -->
+								<header class="major">
+									<h2 id="software-section">CorelDRAW Software Overview</h2>
+								</header>
+								
+								<div class="process-step">
+									<h3>Why CorelDRAW for 2D CAD?</h3>
+									<p>CorelDRAW is a professional vector graphics editor that offers several advantages for technical drawing and fabrication preparation:</p>
+									
+									<div class="tool-feature">
+										<h4>Precision Drawing Tools</h4>
+										<p>CorelDRAW provides exact dimension input, snapping tools, and alignment features essential for technical drawings.</p>
+									</div>
+									
+									<div class="tool-feature">
+										<h4>Industry-Standard Export</h4>
+										<p>Supports PDF export with high precision, maintaining vector quality for documentation and sharing.</p>
+									</div>
+									
+									<div class="tool-feature">
+										<h4>Layer Management</h4>
+										<p>Allows organization of different views (front, side, top) and annotations on separate layers.</p>
+									</div>
+									
+									<div class="tool-feature">
+										<h4>Comparison with Other Tools</h4>
+										<p>I also explored Inkscape (free/open-source) and Adobe Illustrator to understand different workflows:
+											<ul>
+												<li><strong>Inkscape:</strong> Excellent free alternative, uses SVG format, good for basic vector work</li>
+												<li><strong>Adobe Illustrator:</strong> Industry standard, excellent integration with other Adobe products</li>
+												<li><strong>CorelDRAW:</strong> Best balance of precision tools and user-friendly interface for technical drawings</li>
+											</ul>
+										</p>
+									</div>
+								</div>
+
+								<!-- Interface & Setup Section -->
+								<header class="major">
+									<h2 id="interface-setup">CorelDRAW Interface & Page Setup</h2>
+								</header>
+								
+								<div class="process-step">
+									<h3>CorelDRAW Workspace Configuration</h3>
+									
+									<!-- CorelDRAW Main Page Screenshot -->
+									<div>
+										
+												<div class="screenshot-container">
+												<div class="screenshot-image">
+													<img src="images/coreldraw-interface.png" alt="Eco-Friendly Bamboo Nameplate Sketch" style="width:100%; height:100%; object-fit:contain;" />
+												</div>
+												<div class="screenshot-info">
+
+
+										<div>
+											<h4>CorelDRAW Main Interface</h4>
+											<p>The CorelDRAW workspace is organized for efficient 2D technical drawing, featuring:</p>
+											<ul class="screenshot-features">
+												<li><span class="feature-label">Menu Bar:</span> Access to all file, edit, view, and layout operations</li>
+												<li><span class="feature-label">Property Bar:</span> Context-sensitive tools that change based on selected objects</li>
+												<li><span class="feature-label">Toolbox:</span> Comprehensive drawing, shaping, and editing tools</li>
+												<li><span class="feature-label">Drawing Window:</span> Main workspace where designs are created</li>
+												<li><span class="feature-label">Docker Panels:</span> Object properties, color palettes, and layer management</li>
+												<li><span class="feature-label">Status Bar:</span> Real-time information about selected objects</li>
+											</ul>
+										</div>
+									</div>
+									
+									<!-- Page Setup Screenshot -->
+									<div class="screenshot-container" style="margin: 20px 0;">
+										<div class="screenshot-image">
+											<img src="images/page-setup-dialog.png" alt="CorelDRAW Page Setup Dialog" />
+										</div>
+										<div class="screenshot-info">
+											<h4>Page Setup Configuration for Technical Drawing</h4>
+											<p>Proper page setup is essential for creating accurate technical drawings:</p>
+											<ul class="screenshot-features">
+												<li><span class="feature-label">Page Size:</span> A4 (210mm × 297mm) for standard documentation</li>
+												<li><span class="feature-label">Orientation:</span> Landscape for optimal multi-view drawing layout</li>
+												<li><span class="feature-label">Units:</span> Millimeters (mm) for precision engineering drawings</li>
+												<li><span class="feature-label">Resolution:</span> 300 dpi for high-quality printing and output</li>
+												<li><span class="feature-label">Bleed:</span> 3mm for laser cutting alignment marks</li>
+												<li><span class="feature-label">Grid Setup:</span> 5mm major grid with 1mm minor divisions for precise snapping</li>
+											</ul>
+										</div>
+									</div>
+									
+									<h4>Key Setup Steps:</h4>
+									<ul>
+										<li>Created separate layers for different drawing elements (construction lines, views, dimensions, annotations)</li>
+										<li>Enabled grid snapping and guideline snapping for precision</li>
+										<li>Set up color coding system for different line types</li>
+										<li>Configured dimensioning styles according to ISO 128 standards</li>
+										<li>Saved as a reusable template for future technical drawings</li>
+									</ul>
+								</div>
+
+								<!-- Technical Drawings Section -->
+								<header class="major">
+									<h2 id="technical-drawings">Technical Drawings - Orthographic Views</h2>
+								</header>
+								
+								<p>Using CorelDRAW, I created three orthographic views of the Office Desk LED Nameplate following standard technical drawing conventions. These views provide complete information for fabrication:</p>
+								
+								<div class="sketch-gallery">
+									<!-- Front View -->
+									<div class="screenshot-container">
+										<div class="screenshot-image">
+											<img src="images/front-view-coreldraw.png" alt="Front View of LED Nameplate in CorelDRAW" />
+										</div>
+										<div class="screenshot-info">
+											<h4>Front View (Elevation)</h4>
+											<p>The main elevation showing all visible features from the front, including text cutouts, mounting holes, and LED slots. This view provides the primary dimensions for laser cutting.</p>
+											<ul class="screenshot-features">
+												<li><span class="feature-label">Overall Dimensions:</span> 150mm × 40mm</li>
+												<li><span class="feature-label">Text Height:</span> 25mm (converted to curves for cutting)</li>
+												<li><span class="feature-label">Mounting Holes:</span> 3mm diameter (4x, positioned at corners)</li>
+												<li><span class="feature-label">LED Slots:</span> 5mm diameter (5x, evenly spaced)</li>
+												<li><span class="feature-label">Corner Radius:</span> 5mm for safety and aesthetics</li>
+											</ul>
+										</div>
+									</div>
+									
+									<!-- Side View -->
+									<div class="screenshot-container">
+										<div class="screenshot-image">
+											<img src="images/side-view-coreldraw.png" alt="Side View of LED Nameplate in CorelDRAW" />
+										</div>
+										<div class="screenshot-info">
+											<h4>Side View (Profile)</h4>
+											<p>Profile view showing material thickness and internal features. This view is essential for understanding the three-dimensional form and assembly requirements.</p>
+											<ul class="screenshot-features">
+												<li><span class="feature-label">Material Thickness:</span> 6mm (standard plywood)</li>
+												<li><span class="feature-label">Battery Compartment:</span> 35mm × 20mm × 15mm internal space</li>
+												<li><span class="feature-label">Wire Channels:</span> 2mm width for routing connections</li>
+												<li><span class="feature-label">Stand-off Height:</span> 10mm from desk surface for airflow</li>
+												<li><span class="feature-label">Switch Opening:</span> Located on right side for easy access</li>
+											</ul>
+										</div>
+									</div>
+									
+									<!-- Top View -->
+									<div class="screenshot-container">
+										<div class="screenshot-image">
+											<img src="images/top-view-coreldraw.png" alt="Top View of LED Nameplate in CorelDRAW" />
+										</div>
+										<div class="screenshot-info">
+											<h4>Top View (Plan)</h4>
+											<p>Plan view showing component layout, switch placement, and overall footprint. This view helps with assembly planning and component positioning.</p>
+											<ul class="screenshot-features">
+												<li><span class="feature-label">Switch Cutout:</span> 12mm × 6mm (standard toggle switch)</li>
+												<li><span class="feature-label">Component Layout:</span> Optimized for easy assembly and maintenance</li>
+												<li><span class="feature-label">Wire Routing Channels:</span> Clearly defined paths for clean installation</li>
+												<li><span class="feature-label">Battery Access:</span> Rear access panel for easy battery replacement</li>
+												<li><span class="feature-label">Overall Footprint:</span> 150mm × 40mm (matches front view)</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+
+								<!-- Complete Design Section -->
+								<header class="major">
+									<h2 id="complete-design">Complete Technical Drawing Sheet</h2>
+								</header>
+								
+								<div class="process-step">
+									<h3>Final Drawing Assembly</h3>
+									<div class="screenshot-container">
+										<div class="screenshot-image">
+											<img src="images/full-drawing-coreldraw.png" alt="Complete Technical Drawing Sheet" style="height: 300px;" />
+										</div>
+										<div class="screenshot-info">
+											<h4>Complete Drawing Sheet with All Views</h4>
+											<p>The comprehensive technical drawing sheet brings together all three orthographic views arranged according to standard technical drawing conventions. This sheet includes all necessary information for fabrication, assembly, and quality control.</p>
+											
+											<h5>Drawing Features:</h5>
+											<ul class="screenshot-features">
+												<li><span class="feature-label">Standard Layout:</span> Front, top, and side views properly aligned using projection lines</li>
+												<li><span class="feature-label">Complete Dimensioning:</span> All critical dimensions shown with proper tolerances (±0.2mm)</li>
+												<li><span class="feature-label">Material Specifications:</span> 6mm Baltic Birch Plywood with grain direction indicated</li>
+												<li><span class="feature-label">Fabrication Notes:</span> Laser cutting parameters (Power: 80%, Speed: 20mm/s)</li>
+												<li><span class="feature-label">Title Block:</span> Professional title block with project information, scale (1:1), revision history</li>
+												<li><span class="feature-label">Symbols & Conventions:</span> Standard symbols for holes, materials, and surface finishes</li>
+											</ul>
+											
+											<h5>Standards Compliance:</h5>
+											<p>This drawing follows <strong>ISO 128</strong> standards for technical drawings, ensuring international readability. Proper line weights are used (thick for visible edges, thin for dimensions, dashed for hidden features).</p>
+										</div>
+									</div>
+								</div>
+
+								<!-- CAD Files Download Section -->
+								<header class="major">
+									<h2 id="download-section">CAD Files Download</h2>
+								</header>
+								
+								<div class="download-section">
+									<h3>Download Design Files</h3>
+									<p>All CAD files for the Office Desk LED Nameplate are available for download. These files are ready for documentation, sharing, and can be adapted for different materials or sizes.</p>
+									
+									<h4>Available Formats:</h4>
+									<ul>
+										<li><strong>CorelDRAW (.cdr):</strong> Original editable file with all layers and settings</li>
+										<li><strong>Adobe PDF (.pdf):</strong> High-quality PDF document for printing, sharing, and documentation</li>
+										<li><strong>PDF (Vector):</strong> Preserves vector quality for scaling and professional printing</li>
+										<li><strong>PDF (Print Ready):</strong> Optimized for standard A4 printing with proper margins</li>
+									</ul>
+									
+									<h4>Download Links:</h4>
+									<p>
+										<a href="downloads/led-nameplate-coreldraw.cdr" class="download-button cdr">Download CorelDRAW File (.cdr)</a>
+										<a href="downloads/led-nameplate-technical-drawing.pdf" class="download-button pdf">Download Technical Drawing PDF</a>
+									</p>
+									
+									<h5>PDF File Details:</h5>
+									<ul class="screenshot-features">
+										<li><span class="feature-label">File Size:</span> 2.4 MB (optimized for web and email)</li>
+										<li><span class="feature-label">Pages:</span> 1 page with all three orthographic views</li>
+										<li><span class="feature-label">Resolution:</span> 300 DPI for high-quality printing</li>
+										<li><span class="feature-label">Vector Elements:</span> All text and lines remain editable vectors</li>
+										<li><span class="featureLabel">Compatibility:</span> Can be opened with Adobe Acrobat Reader, Chrome, Firefox, and most PDF viewers</li>
+									</ul>
+									
+									<p><em>Note: These files are shared under Creative Commons Attribution-ShareAlike license. You are free to use, modify, and share with attribution to the original designer.</em></p>
+								</div>
+
+								<!-- Reflection Section -->
+								<header class="major">
+									<h2 id="reflection-section">Reflection</h2>
+								</header>
+								
+								<div class="process-step">
+									<h3>What I Learned</h3>
+									<p>This week's exploration of 2D CAD with CorelDRAW was incredibly valuable. I gained practical skills in:</p>
+									<ul>
+										<li><strong>Precision in Design:</strong> Learning to work with exact dimensions and tolerances changed how I approach design problems</li>
+										<li><strong>Fabrication Awareness:</strong> Understanding how design decisions affect manufacturability, especially for laser cutting</li>
+										<li><strong>Software Comparison:</strong> Appreciating the strengths of different tools - CorelDRAW for technical drawing, Inkscape for accessibility, Illustrator for professional workflows</li>
+										<li><strong>Standard Compliance:</strong> Following technical drawing standards ensures my designs can be understood and fabricated anywhere</li>
+										<li><strong>PDF Export Skills:</strong> Learning to create professional PDF documents that maintain vector quality for documentation</li>
+									</ul>
+								</div>
+								
+								<div class="process-step">
+									<h3>Challenges and Solutions</h3>
+									<p>Several challenges emerged during the week:</p>
+									<ul>
+										<li><strong>Challenge:</strong> Managing multiple views and keeping them aligned
+											<br><strong>Solution:</strong> Using construction lines and layer locking features in CorelDRAW</li>
+										<li><strong>Challenge:</strong> Understanding proper dimensioning conventions
+											<br><strong>Solution:</strong> Studying ISO 128 standards and practicing with sample drawings</li>
+										<li><strong>Challenge:</strong> Creating high-quality PDF exports
+											<br><strong>Solution:</strong> Configuring PDF export settings for vector preservation and proper scaling</li>
+									</ul>
+								</div>
+								
+								<div class="process-step">
+									<h3>Application to African Context</h3>
+									<p>This experience highlighted the importance of CAD skills in the African maker context:</p>
+									<ul>
+										<li><strong>Digital Documentation:</strong> PDF files provide universal access to technical drawings without specialized software</li>
+										<li><strong>Local Adaptation:</strong> Easy to modify designs for locally available materials (different plywood thicknesses, acrylic sheets, etc.)</li>
+										<li><strong>Knowledge Sharing:</strong> PDF files can be shared across the continent via email or mobile devices, enabling collaboration</li>
+										<li><strong>Economic Opportunity:</strong> These skills enable local production of customized products with professional documentation</li>
+										<li><strong>Accessibility:</strong> PDF format works on almost any device, making technical knowledge more accessible</li>
+									</ul>
+								</div>
+								
+								<div class="process-step">
+									<h3>Looking Forward</h3>
+									<p>As I move to 3D CAD next week, I now appreciate the foundation that 2D skills provide. The precision and attention to detail required in 2D technical drawing will directly translate to better 3D modeling. I'm particularly excited to explore parametric design, where dimensions can be linked and modified globally - something that would have saved time this week when experimenting with different material thicknesses.</p>
+									<p>The Office Desk LED Nameplate is now fully documented with professional technical drawings in both CorelDRAW and PDF formats. The PDF export capability is especially valuable for sharing designs with collaborators who may not have access to CorelDRAW software. Next week, I'll bring this design into 3D space, creating a virtual prototype that can be tested and modified before any physical material is cut.</p>
+								</div>
+
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+
+			<!-- Sidebar (will be loaded automatically by sidebar-loader.js) -->
+			<div id="sidebar">
+				<!-- Sidebar content will be injected here -->
+			</div>
+		</div>
+
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script src="assets/js/sidebar-loader.js"></script> <!-- Universal sidebar loader -->
+		
+		<!-- Page-specific JavaScript -->
+		<script>
+			// Initialize page-specific functionality
+			document.addEventListener('DOMContentLoaded', function() {
+				// Navigation toggles
+				const navToggles = document.querySelectorAll('.nav-toggle-button');
+				navToggles.forEach(toggle => {
+					toggle.addEventListener('click', function() {
+						const navList = this.closest('.inpage-nav-box').querySelector('ul');
+						if (navList) {
+							navList.classList.toggle('collapsed');
+							this.textContent = navList.classList.contains('collapsed') ? '+' : '-';
+							this.setAttribute('aria-expanded', !navList.classList.contains('collapsed'));
+						}
+					});
+				});
+			});
+		</script>
+	</body>
+</html>
